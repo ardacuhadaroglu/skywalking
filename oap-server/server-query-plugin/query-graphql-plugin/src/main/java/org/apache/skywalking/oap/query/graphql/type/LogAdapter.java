@@ -51,7 +51,7 @@ public class LogAdapter {
             .trimResults()
             .splitToList(log.line());
         if (timeAndContent.size() == 2) {
-            String timeStr = timeAndContent.get(0).replaceAll("\\.\\d+Z", "Z");
+            String timeStr = timeAndContent.get(0).replaceAll("\\.\\d+", "");
             try {
                 TemporalAccessor t = rfc3339Formatter.parse(timeStr);
                 long timestamp = Instant.from(t).getEpochSecond();
